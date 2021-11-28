@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="mp"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mp">
+				<Option output="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/mp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/cmmeyers/Dropbox/Graphics/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 mp"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mp/fast">
+				<Option output="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/mp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/cmmeyers/Dropbox/Graphics/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 mp/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/ArcBallCam.cpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/ArcBallCam.hpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/CameraManager.cpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/CameraManager.hpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Deimos.cpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Deimos.hpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Flashlight.cpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Flashlight.hpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/FreeCam.hpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/GenericCharacter.cpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/GenericCharacter.hpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/MpEngine.cpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/MpEngine.hpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Plane.cpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Plane.hpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Popsickle.cpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Popsickle.hpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Skier.cpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Skier.hpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Tree.cpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Tree.hpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/main.cpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
