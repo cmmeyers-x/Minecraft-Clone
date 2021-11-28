@@ -1,7 +1,7 @@
 CMakeFiles/mp.dir/Flashlight.cpp.o: \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Flashlight.cpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Flashlight.cpp \
  /usr/include/stdc-predef.h \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Flashlight.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Flashlight.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/GL/glew.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdint.h /usr/include/stdint.h \
@@ -301,7 +301,7 @@ CMakeFiles/mp.dir/Flashlight.cpp.o: \
  /usr/include/c++/7/bits/stl_map.h /usr/include/c++/7/tuple \
  /usr/include/c++/7/array /usr/include/c++/7/bits/uses_allocator.h \
  /usr/include/c++/7/bits/invoke.h /usr/include/c++/7/bits/stl_multimap.h \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/GenericCharacter.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/GenericCharacter.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/glm/gtc/matrix_transform.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/glm/gtc/../ext/matrix_projection.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/glm/gtc/../ext/../gtc/constants.hpp \

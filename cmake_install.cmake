@@ -1,4 +1,4 @@
-# Install script for directory: /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A
+# Install script for directory: /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 project(mp)
 set(CMAKE_CXX_STANDARD 17)
-set(SOURCE_FILES main.cpp MpEngine.cpp MpEngine.hpp Plane.cpp Plane.hpp FreeCam.hpp FreeCam.hpp CameraManager.cpp CameraManager.hpp GenericCharacter.cpp GenericCharacter.hpp Skier.cpp Skier.hpp Popsickle.cpp Popsickle.hpp Deimos.cpp Deimos.hpp ArcBallCam.cpp ArcBallCam.hpp Flashlight.cpp Flashlight.hpp Tree.cpp Tree.hpp)
+set(SOURCE_FILES main.cpp MpEngine.cpp MpEngine.hpp Plane.cpp Plane.hpp FreeCam.hpp FreeCam.hpp CameraManager.cpp CameraManager.hpp GenericCharacter.cpp GenericCharacter.hpp  Popsickle.cpp Popsickle.hpp Deimos.cpp Deimos.hpp ArcBallCam.cpp ArcBallCam.hpp Flashlight.cpp Flashlight.hpp  Block.cpp Block.hpp Tree.cpp Tree.hpp Skier.cpp Skier.hpp)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 # Windows with MinGW Installations

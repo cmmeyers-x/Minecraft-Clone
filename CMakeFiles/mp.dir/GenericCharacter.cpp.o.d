@@ -1,7 +1,7 @@
 CMakeFiles/mp.dir/GenericCharacter.cpp.o: \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/GenericCharacter.cpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/GenericCharacter.cpp \
  /usr/include/stdc-predef.h \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/GenericCharacter.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/GenericCharacter.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/GL/glew.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdint.h /usr/include/stdint.h \

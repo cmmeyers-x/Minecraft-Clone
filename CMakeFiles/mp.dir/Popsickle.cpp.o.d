@@ -1,8 +1,8 @@
 CMakeFiles/mp.dir/Popsickle.cpp.o: \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Popsickle.cpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Popsickle.cpp \
  /usr/include/stdc-predef.h \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Popsickle.hpp \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/GenericCharacter.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Popsickle.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/GenericCharacter.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/GL/glew.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdint.h /usr/include/stdint.h \

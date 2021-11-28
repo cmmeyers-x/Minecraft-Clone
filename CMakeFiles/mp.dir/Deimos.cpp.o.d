@@ -1,7 +1,7 @@
 CMakeFiles/mp.dir/Deimos.cpp.o: \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Deimos.cpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Deimos.cpp \
  /usr/include/stdc-predef.h \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Deimos.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Deimos.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/GL/glew.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdint.h /usr/include/stdint.h \
@@ -234,7 +234,7 @@ CMakeFiles/mp.dir/Deimos.cpp.o: \
  /home/cmmeyers/Dropbox/Graphics/include/glm/detail/type_half.inl \
  /home/cmmeyers/Dropbox/Graphics/include/glm/integer.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/glm/detail/func_integer.inl \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/GenericCharacter.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/GenericCharacter.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/glm/gtc/matrix_transform.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/glm/gtc/../ext/matrix_projection.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/glm/gtc/../ext/../gtc/constants.hpp \

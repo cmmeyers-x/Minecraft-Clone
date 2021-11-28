@@ -16,7 +16,7 @@
 #include "GenericCharacter.hpp"
 #include "FreeCam.hpp"
 #include "Popsickle.hpp"
-#include "Skier.hpp"
+
 #include "Deimos.hpp"
 #include "Flashlight.hpp"
 
@@ -81,6 +81,6 @@ private:
     CameraType _currentCamera;
     Players _currentPlayer;
 
-    static const int NUM_PLAYERS = 4;
+    static const int NUM_PLAYERS = 3;
     GenericCharacter* characters[NUM_PLAYERS];
 };

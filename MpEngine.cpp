@@ -28,11 +28,12 @@ MpEngine::MpEngine(int OPENGL_MAJOR_VERSION, int OPENGL_MINOR_VERSION,
 
     _mousePosition = glm::vec2(MOUSE_UNINITIALIZED, MOUSE_UNINITIALIZED );
     _leftMouseButtonState = GLFW_RELEASE;
+
 }
 
 MpEngine::~MpEngine() {
     delete _cameraManager;
-    delete _tree;
+  //  delete _tree;
 }
 
 void MpEngine::handleKeyEvent(GLint key, GLint action) {
@@ -142,10 +143,33 @@ void MpEngine::_setupShaders() {
     // TODO #3B: assign attributes
     _lightingShaderAttributeLocations.vertexNormal = _lightingShaderProgram->getAttributeLocation("vertexNormal");
 
+    _setupBlockShader();
 }
+
+
+void MpEngine::_setupBlockShader(){
+    _blockShaderProgram = new CSCI441::ShaderProgram("shaders/block.v.glsl", "shaders/block.g.glsl","shaders/block.f.glsl" );
+//    _blockShaderProgram = new CSCI441::ShaderProgram("shaders/block.v.glsl", "shaders/block.f.glsl" );
+
+    _blockShaderAttributeLocations.vPos = _blockShaderProgram->getAttributeLocation("vPos");
+    _blockShaderAttributeLocations.textCoordinateIn = _blockShaderProgram->getAttributeLocation("textureMap");
+
+    _blockShaderUniformLocations.mvpMatrix = _blockShaderProgram->getUniformLocation("mvpMatrix");
+    _blockShaderUniformLocations.textureMap = _blockShaderProgram->getUniformLocation("blockTexture");
+
+
+
+    CSCI441::setVertexAttributeLocations(_blockShaderAttributeLocations.vPos,
+                                         _blockShaderAttributeLocations.textCoordinateIn );
+}
+
+
+
 
 void MpEngine::_setupBuffers() {
     // TODO #4: need to connect our 3D Object Library to our shader
+
+
     CSCI441::setVertexAttributeLocations( _lightingShaderAttributeLocations.vPos, _lightingShaderAttributeLocations.vertexNormal ); //// (2nd argument)
 
 
@@ -155,11 +179,13 @@ void MpEngine::_setupBuffers() {
                                 _lightingShaderUniformLocations.normalMatrix,
                                 _lightingShaderUniformLocations.materialColor);
 
+
+    /*
     _tree = new Tree(_lightingShaderProgram->getShaderProgramHandle(),
                      _lightingShaderUniformLocations.mvpMatrix,
                      _lightingShaderUniformLocations.normalMatrix, //// just this line added
                      _lightingShaderUniformLocations.materialColor);
-
+    */
     _createGroundBuffers();
     _generateEnvironment();
 }
@@ -223,40 +249,43 @@ void MpEngine::_generateEnvironment() {
 
     srand( time(0) );                                                   // seed our RNG
 
-    for(int i = LEFT_END_POINT; i < RIGHT_END_POINT; i += GRID_SPACING_WIDTH) {
-        for(int j = BOTTOM_END_POINT; j < TOP_END_POINT; j += GRID_SPACING_LENGTH) {
-            if( i % 2 && j % 2 && getRand() < 0.4f ) {
-                if(!(i < 0) && !(j < 0)) {
-                // translate to spot, (modified from LAB05)
-                glm::mat4 transToSpotMtx = glm::translate( glm::mat4(1.0), glm::vec3(i, 0.0f, j) );
-                // compute random height
-                //GLdouble height = powf(getRand(), 2.5)*10 + 1;
-                GLdouble height = abs((sin((3.14*1.5)*i/RIGHT_END_POINT)) * abs(cos((3.14*1.5)*j/TOP_END_POINT) * 15) + 5.0f);
-                // scale to building size
-                glm::mat4 scaleToHeightMtx = glm::scale( glm::mat4(1.0), glm::vec3(1, height, 1) );
-
-                // translate up to grid
-                glm::mat4 transToHeight = glm::translate( glm::mat4(1.0), glm::vec3(0, height/2.0f, 0) );
-
-                // compute full model matrix
-                glm::mat4 modelMatrix = transToHeight * scaleToHeightMtx * transToSpotMtx;
-
-                // compute random color
-                glm::vec3 color( 0.235f, 0.180f, 0.164 );
-
-                    // store building properties
-                BuildingData currentBuilding = {modelMatrix, color};
-                _buildings.emplace_back( currentBuilding );
-                } else {
-                    glm::mat4 modelMatrix = glm::translate(glm::mat4(1.0), glm::vec3(i, 0.0f, j));
-                    GLfloat scale = ((rand() % 60 + 40) / 20.0f);
-                    modelMatrix = glm::scale(modelMatrix, glm::vec3(scale, scale, scale));
-                    TreeData currentTree = {modelMatrix};
-                    _trees.emplace_back(currentTree);
-                }
-            }
-        }
-    }
+//    for(int i = LEFT_END_POINT; i < RIGHT_END_POINT; i += GRID_SPACING_WIDTH) {
+//        for(int j = BOTTOM_END_POINT; j < TOP_END_POINT; j += GRID_SPACING_LENGTH) {
+//            if( i % 2 && j % 2 && getRand() < 0.4f ) {
+//                if(!(i < 0) && !(j < 0)) {
+//                // translate to spot, (modified from LAB05)
+//                glm::mat4 transToSpotMtx = glm::translate( glm::mat4(1.0), glm::vec3(i, 0.0f, j) );
+//                // compute random height
+//                //GLdouble height = powf(getRand(), 2.5)*10 + 1;
+//                GLdouble height = abs((sin((3.14*1.5)*i/RIGHT_END_POINT)) * abs(cos((3.14*1.5)*j/TOP_END_POINT) * 15) + 5.0f);
+//                // scale to building size
+//                glm::mat4 scaleToHeightMtx = glm::scale( glm::mat4(1.0), glm::vec3(1, height, 1) );
+//
+//                // translate up to grid
+//                glm::mat4 transToHeight = glm::translate( glm::mat4(1.0), glm::vec3(0, height/2.0f, 0) );
+//
+//                // compute full model matrix
+//                glm::mat4 modelMatrix = transToHeight * scaleToHeightMtx * transToSpotMtx;
+//
+//                // compute random color
+//                glm::vec3 color( 0.235f, 0.180f, 0.164 );
+//
+//
+////                // store building properties
+////                BuildingData currentBuilding = {modelMatrix, color};
+////                _buildings.emplace_back( currentBuilding );
+////                } else {
+////                    glm::mat4 modelMatrix = glm::translate(glm::mat4(1.0), glm::vec3(i, 0.0f, j));
+////                    GLfloat scale = ((rand() % 60 + 40) / 20.0f);
+////                    modelMatrix = glm::scale(modelMatrix, glm::vec3(scale, scale, scale));
+////                    TreeData currentTree = {modelMatrix};
+////                    _trees.emplace_back(currentTree);
+////
+////                }
+//
+//            }
+//        }
+//    }
 }
 ///##################################################################################################
 
@@ -349,7 +378,7 @@ void MpEngine::_renderScene(glm::mat4 viewMtx, glm::mat4 projMtx) {
     _lightingShaderProgram->useProgram();
 
     glm::vec3 materialSpecularCharacters = glm::vec3(0.6f, 0.6f, 0.6f);
-    glm::vec3 materialSpecularTrees = glm::vec3(0.4f, 0.4f, 0.4f);
+  //  glm::vec3 materialSpecularTrees = glm::vec3(0.4f, 0.4f, 0.4f);
     glm::vec3 materialSpecularBuildings = glm::vec3(0.3f, 0.3f, 0.3f);
 
     glm::vec3 lightAmbient = glm::vec3(1.0f, 1.0f, 1.0f);
@@ -359,19 +388,19 @@ void MpEngine::_renderScene(glm::mat4 viewMtx, glm::mat4 projMtx) {
     glUniform3fv(_lightingShaderUniformLocations.viewVector, 1, &_cameraManager->getCamera()->getPosition()[0]);
 
     // Draw Trees and Towers
-    glUniform3fv(_lightingShaderUniformLocations.materialSpecular, 1, &materialSpecularTrees[0]);
-    for( const TreeData& currentTree : _trees ) {
-        _tree->drawTree(currentTree.modelMatrix, viewMtx, projMtx);
-    }
+   // glUniform3fv(_lightingShaderUniformLocations.materialSpecular, 1, &materialSpecularTrees[0]);
+   // for( const TreeData& currentTree : _trees ) {
+   //     _tree->drawTree(currentTree.modelMatrix, viewMtx, projMtx);
+   // }
 
     glUniform3fv(_lightingShaderUniformLocations.materialSpecular, 1, &materialSpecularBuildings[0]);
-    for( const BuildingData& currentBuilding : _buildings ) {
-        _computeAndSendMatrixUniforms(currentBuilding.modelMatrix, viewMtx, projMtx);
-
-        glUniform3fv(_lightingShaderUniformLocations.materialColor, 1, &currentBuilding.color[0]);
-
-        CSCI441::drawSolidCube(1.0);
-    }
+   // for( const BuildingData& currentBuilding : _buildings ) {
+    //    _computeAndSendMatrixUniforms(currentBuilding.modelMatrix, viewMtx, projMtx);
+//
+    //    glUniform3fv(_lightingShaderUniformLocations.materialColor, 1, &currentBuilding.color[0]);
+//
+   //     CSCI441::drawSolidCube(1.0);
+  //  }
 
     // Draw all characters
     glUniform3fv(_lightingShaderUniformLocations.materialSpecular, 1, &materialSpecularCharacters[0]);
@@ -389,6 +418,13 @@ void MpEngine::_renderScene(glm::mat4 viewMtx, glm::mat4 projMtx) {
 
     glBindVertexArray(_groundVAO);
     glDrawElements(GL_TRIANGLE_STRIP, _numGroundPoints, GL_UNSIGNED_SHORT, (void*)0);
+
+
+    _blockShaderProgram->useProgram();
+    glm::mat4 modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+    glm::mat4 mvpMtx = projMtx * viewMtx * modelMatrix;
+    _blockShaderProgram->setProgramUniform(_blockShaderUniformLocations.mvpMatrix, mvpMtx);
+    CSCI441::drawSolidCubeTextured( 40.0f );
 
 }
 

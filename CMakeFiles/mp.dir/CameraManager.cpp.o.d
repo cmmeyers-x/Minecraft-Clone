@@ -1,7 +1,7 @@
 CMakeFiles/mp.dir/CameraManager.cpp.o: \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/CameraManager.cpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CameraManager.cpp \
  /usr/include/stdc-predef.h \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/CameraManager.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CameraManager.hpp \
  /usr/include/c++/7/cmath \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/7/bits/os_defines.h \
@@ -340,20 +340,20 @@ CMakeFiles/mp.dir/CameraManager.cpp.o: \
  /home/cmmeyers/Dropbox/Graphics/include/glm/gtc/../ext/matrix_transform.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/glm/gtc/../ext/matrix_transform.inl \
  /home/cmmeyers/Dropbox/Graphics/include/glm/gtc/matrix_transform.inl \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Camera.hpp \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/ArcBallCam.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Camera.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/ArcBallCam.hpp \
  /usr/include/c++/7/iostream /usr/include/c++/7/vector \
  /usr/include/c++/7/bits/stl_construct.h \
  /usr/include/c++/7/bits/stl_uninitialized.h \
  /usr/include/c++/7/bits/stl_vector.h \
  /usr/include/c++/7/bits/stl_bvector.h /usr/include/c++/7/bits/vector.tcc \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/GenericCharacter.hpp \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/FreeCam.hpp \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Popsickle.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/GenericCharacter.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/FreeCam.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Popsickle.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/CSCI441/objects.hpp \
  /usr/include/c++/7/math.h \
  /home/cmmeyers/Dropbox/Graphics/include/CSCI441/teapot.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/CSCI441/OpenGLUtils.hpp \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Skier.hpp \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Deimos.hpp \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Flashlight.hpp
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Skier.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Deimos.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Flashlight.hpp

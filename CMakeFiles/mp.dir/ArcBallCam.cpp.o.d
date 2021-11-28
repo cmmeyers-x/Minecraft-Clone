@@ -1,8 +1,8 @@
 CMakeFiles/mp.dir/ArcBallCam.cpp.o: \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/ArcBallCam.cpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/ArcBallCam.cpp \
  /usr/include/stdc-predef.h \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/ArcBallCam.hpp \
- /home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Camera.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/ArcBallCam.hpp \
+ /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Camera.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/GL/glew.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdint.h /usr/include/stdint.h \

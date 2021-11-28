@@ -48,9 +48,9 @@ void CameraManager::initPlayers(GLuint shaderProgramHandle, GLint mvpMtxUniformL
                                 GLint materialColorUniformLocation) {
 
     characters[Players::player1] = new Popsickle(shaderProgramHandle, mvpMtxUniformLocation, normalMtxUniformLocation, materialColorUniformLocation);
-    characters[Players::player2] = new Skier(shaderProgramHandle, mvpMtxUniformLocation, normalMtxUniformLocation, materialColorUniformLocation);
-    characters[Players::player3] = new Deimos(shaderProgramHandle, mvpMtxUniformLocation, normalMtxUniformLocation, materialColorUniformLocation);
-    characters[Players::player4] = new Flashlight(shaderProgramHandle, mvpMtxUniformLocation, normalMtxUniformLocation, materialColorUniformLocation);
+   // characters[Players::player2] = new Skier(shaderProgramHandle, mvpMtxUniformLocation, normalMtxUniformLocation, materialColorUniformLocation);
+    characters[Players::player2] = new Deimos(shaderProgramHandle, mvpMtxUniformLocation, normalMtxUniformLocation, materialColorUniformLocation);
+    characters[Players::player3] = new Flashlight(shaderProgramHandle, mvpMtxUniformLocation, normalMtxUniformLocation, materialColorUniformLocation);
 
     _currentPlayer = Players::player1;
 }

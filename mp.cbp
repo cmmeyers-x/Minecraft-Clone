@@ -8,151 +8,141 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A"/>
+				<Option working_dir="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A"/>
+				<Option working_dir="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A"/>
+				<Option working_dir="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="mp">
-				<Option output="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/mp" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A"/>
+				<Option output="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/mp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/cmmeyers/Dropbox/Graphics/include"/>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 mp"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 mp"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="mp/fast">
-				<Option output="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/mp" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A"/>
+				<Option output="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/mp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/cmmeyers/Dropbox/Graphics/include"/>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 mp/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 mp/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/ArcBallCam.cpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/ArcBallCam.cpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/ArcBallCam.hpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/ArcBallCam.hpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/CameraManager.cpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Block.cpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/CameraManager.hpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Block.hpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Deimos.cpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CameraManager.cpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Deimos.hpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CameraManager.hpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Flashlight.cpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Deimos.cpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Flashlight.hpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Deimos.hpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/FreeCam.hpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Flashlight.cpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/GenericCharacter.cpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Flashlight.hpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/GenericCharacter.hpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/FreeCam.hpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/MpEngine.cpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/GenericCharacter.cpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/MpEngine.hpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/GenericCharacter.hpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Plane.cpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/MpEngine.cpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Plane.hpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/MpEngine.hpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Popsickle.cpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Plane.cpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Popsickle.hpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Plane.hpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Skier.cpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Popsickle.cpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Skier.hpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Popsickle.hpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Tree.cpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Skier.cpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Tree.hpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Skier.hpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/main.cpp">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Tree.cpp">
 			<Option target="mp"/>
 		</Unit>
-		<Unit filename="/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/CMakeLists.txt">
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Tree.hpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/main.cpp">
+			<Option target="mp"/>
+		</Unit>
+		<Unit filename="/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

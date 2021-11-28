@@ -4,21 +4,32 @@ set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
 
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
+  "CXX"
+  )
+# The set of files for implicit dependencies of each language:
+set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/ArcBallCam.cpp" "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CMakeFiles/mp.dir/ArcBallCam.cpp.o"
+  "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Block.cpp" "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CMakeFiles/mp.dir/Block.cpp.o"
+  "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CameraManager.cpp" "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CMakeFiles/mp.dir/CameraManager.cpp.o"
+  "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Deimos.cpp" "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CMakeFiles/mp.dir/Deimos.cpp.o"
+  "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Flashlight.cpp" "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CMakeFiles/mp.dir/Flashlight.cpp.o"
+  "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/GenericCharacter.cpp" "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CMakeFiles/mp.dir/GenericCharacter.cpp.o"
+  "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/MpEngine.cpp" "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CMakeFiles/mp.dir/MpEngine.cpp.o"
+  "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Plane.cpp" "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CMakeFiles/mp.dir/Plane.cpp.o"
+  "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Popsickle.cpp" "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CMakeFiles/mp.dir/Popsickle.cpp.o"
+  "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Skier.cpp" "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CMakeFiles/mp.dir/Skier.cpp.o"
+  "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Tree.cpp" "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CMakeFiles/mp.dir/Tree.cpp.o"
+  "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/main.cpp" "/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/CMakeFiles/mp.dir/main.cpp.o"
+  )
+set(CMAKE_CXX_COMPILER_ID "GNU")
+
+# The include file search paths:
+set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/home/cmmeyers/Dropbox/Graphics/include"
   )
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/ArcBallCam.cpp" "CMakeFiles/mp.dir/ArcBallCam.cpp.o" "gcc" "CMakeFiles/mp.dir/ArcBallCam.cpp.o.d"
-  "/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/CameraManager.cpp" "CMakeFiles/mp.dir/CameraManager.cpp.o" "gcc" "CMakeFiles/mp.dir/CameraManager.cpp.o.d"
-  "/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Deimos.cpp" "CMakeFiles/mp.dir/Deimos.cpp.o" "gcc" "CMakeFiles/mp.dir/Deimos.cpp.o.d"
-  "/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Flashlight.cpp" "CMakeFiles/mp.dir/Flashlight.cpp.o" "gcc" "CMakeFiles/mp.dir/Flashlight.cpp.o.d"
-  "/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/GenericCharacter.cpp" "CMakeFiles/mp.dir/GenericCharacter.cpp.o" "gcc" "CMakeFiles/mp.dir/GenericCharacter.cpp.o.d"
-  "/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/MpEngine.cpp" "CMakeFiles/mp.dir/MpEngine.cpp.o" "gcc" "CMakeFiles/mp.dir/MpEngine.cpp.o.d"
-  "/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Plane.cpp" "CMakeFiles/mp.dir/Plane.cpp.o" "gcc" "CMakeFiles/mp.dir/Plane.cpp.o.d"
-  "/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Popsickle.cpp" "CMakeFiles/mp.dir/Popsickle.cpp.o" "gcc" "CMakeFiles/mp.dir/Popsickle.cpp.o.d"
-  "/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Skier.cpp" "CMakeFiles/mp.dir/Skier.cpp.o" "gcc" "CMakeFiles/mp.dir/Skier.cpp.o.d"
-  "/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/Tree.cpp" "CMakeFiles/mp.dir/Tree.cpp.o" "gcc" "CMakeFiles/mp.dir/Tree.cpp.o.d"
-  "/home/cmmeyers/Dropbox/Graphics/MP-CSCI441A/main.cpp" "CMakeFiles/mp.dir/main.cpp.o" "gcc" "CMakeFiles/mp.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links.

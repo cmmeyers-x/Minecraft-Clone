@@ -57,6 +57,8 @@ private:
     /// \desc handles moving our FreeCam as determined by keyboard input
     void _updateScene();
 
+    void _setupBlockShader();
+
     /// \desc tracks the number of different keys that can be present as determined by GLFW
     static constexpr GLuint NUM_KEYS = GLFW_KEY_LAST;
     /// \desc boolean array tracking each key state.  if true, then the key is in a pressed or held
@@ -72,7 +74,7 @@ private:
     /// \brief x = forward/backward delta, y = rotational delta
     glm::vec2 _cameraSpeed;
 
-    Tree* _tree;
+   // Tree* _tree;
     CameraManager* _cameraManager;
 
     /// \desc the size of the world (controls the ground size and locations of buildings)
@@ -86,24 +88,24 @@ private:
     void _createGroundBuffers();
 
     /// \desc smart container to store information specific to each building we wish to draw
-    struct BuildingData {
-        /// \desc transformations to position and size the building
-        glm::mat4 modelMatrix;
-        /// \desc color to draw the building
-        glm::vec3 color;
-    };
-    /// \desc information list of all the buildings to draw
-    std::vector<BuildingData> _buildings;
+//    struct BuildingData {
+//        /// \desc transformations to position and size the building
+//        glm::mat4 modelMatrix;
+//        /// \desc color to draw the building
+//        glm::vec3 color;
+//    };
+//    /// \desc information list of all the buildings to draw
+//    std::vector<BuildingData> _buildings;
 
 
 ///##################################################################################################
     /// \desc smart container to store information specific to each building we wish to draw
-    struct TreeData {
-        /// \desc transformations to position and size the building
-        glm::mat4 modelMatrix;
-    };
-    /// \desc information list of all the buildings to draw
-    std::vector<TreeData> _trees;
+//    struct TreeData {
+//        /// \desc transformations to position and size the building
+//        glm::mat4 modelMatrix;
+//    };
+//    /// \desc information list of all the buildings to draw
+//    std::vector<TreeData> _trees;
 ///##################################################################################################
 
     /// \desc generates building information to make up our scene
@@ -139,6 +141,19 @@ private:
         // TODO #2: add new attributes
         GLint vertexNormal; ////
     } _lightingShaderAttributeLocations;
+
+    CSCI441::ShaderProgram* _blockShaderProgram = nullptr;
+
+    struct BlockShaderUniformLocations {
+        GLint mvpMatrix;
+        GLint textureMap;
+    }_blockShaderUniformLocations;
+
+    struct BlockShaderAttributeLocations{
+        GLint vPos;
+        GLint textCoordinateIn;
+    }_blockShaderAttributeLocations;
+
 
     /// \desc precomputes the matrix uniforms CPU-side and then sends them
     /// to the GPU to be used in the shader for each vertex.  It is more efficient
