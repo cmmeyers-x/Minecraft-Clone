@@ -8,8 +8,10 @@
 #include "Plane.hpp"
 #include "Tree.hpp"
 #include "CameraManager.hpp"
+#include "Block.hpp"
 
 #include <vector>
+
 
 class MpEngine : public CSCI441::OpenGLEngine {
 public:
@@ -45,8 +47,10 @@ private:
     void _setupOpenGL() final;
     void _setupShaders() final;
     void _setupBuffers() final;
+    void _setupTextures() final;
     void _setupScene() final;
 
+    void _cleanupTextures() final;
     void _cleanupBuffers() final;
     void _cleanupShaders() final;
 
@@ -77,12 +81,56 @@ private:
    // Tree* _tree;
     CameraManager* _cameraManager;
 
+    Block* _block;
+
     /// \desc the size of the world (controls the ground size and locations of buildings)
     static constexpr GLfloat WORLD_SIZE = 55.0f;
+    /// \desc total number of VAOs in our scene
+    static constexpr GLuint NUM_VAOS = 1;
+    /// \desc total number of textures in our scene
+    static constexpr GLuint NUM_TEXTURES = NUM_VAOS;
+    /// \desc texture handles for our objects
+    GLuint _textureHandles[NUM_TEXTURES];
+    /// \desc used to index through our texture array to give named access
+    enum TEXTURE_ID {
+        /// \desc dirt texture
+        DIRT = 0,
+        /// \desc Add textures as necessary
+    };
     /// \desc VAO for our ground
     GLuint _groundVAO;
+
+
     /// \desc the number of points that make up our ground object
     GLsizei _numGroundPoints;
+
+    /// \desc loads an image into CPU memory and registers it with the GPU
+    /// \note sets the texture parameters and sends the data to the GPU
+    /// \param FILENAME external image filename to load
+    static GLuint _loadAndRegisterTexture(const char* FILENAME);
+
+    /// \desc shader program that performs lighting
+    CSCI441::ShaderProgram* _textureShaderProgram = nullptr;   // the wrapper for our shader program
+    /// \desc stores the locations of all of our shader uniforms
+    struct TextureShaderUniformLocations {
+        /// \desc precomputed MVP matrix location
+        GLint mvpMatrix;
+        // TODO #11
+        GLint ourTexture;
+
+    } _textureShaderUniformLocations;
+    /// \desc stores the locations of all of our shader attributes
+    struct TextureShaderAttributeLocations {
+        /// \desc vertex position location
+        GLint vPos;
+        /// \desc vertex normal location
+        /// \note not used in this lab
+        GLint vNormal;
+        // TODO #10
+        GLint aTexCoord;
+
+
+    } _textureShaderAttributeLocations;
 
     /// \desc creates the ground VAO
     void _createGroundBuffers();
@@ -155,6 +203,7 @@ private:
     }_blockShaderAttributeLocations;
 
 
+
     /// \desc precomputes the matrix uniforms CPU-side and then sends them
     /// to the GPU to be used in the shader for each vertex.  It is more efficient
     /// to calculate these once and then use the resultant product in the shader.
@@ -162,6 +211,7 @@ private:
     /// \param viewMtx camera view matrix
     /// \param projMtx camera projection matrix
     void _computeAndSendMatrixUniforms(glm::mat4 modelMtx, glm::mat4 viewMtx, glm::mat4 projMtx) const;
+    //void _createBlockVAOs() const;
 };
 
 void lab05_keyboard_callback(GLFWwindow *window, int key, int scancode, int action, int mods );

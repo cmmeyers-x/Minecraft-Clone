@@ -16,6 +16,15 @@ void GenericCharacter::moveBackward(GLfloat movementFactor){
 }
 
 
+//
+//void GenericCharacter::applyForce(glm::vec3 force){
+//    _currentPosition.x += (sin(_characterAngle) * movementFactor);
+//    _currentPosition.z += (cos(_characterAngle) * movementFactor);
+//}
+
+
+
+
 void GenericCharacter::rotate(GLfloat rotateSpeed) {
     _characterAngle += rotateSpeed;
 }

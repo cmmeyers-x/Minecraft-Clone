@@ -19,6 +19,9 @@ public:
     virtual void moveForward(GLfloat movementFactor);
     virtual void moveBackward(GLfloat movementFactor);
     virtual void rotate(GLfloat rotateSped);
+ //   virtual void applyForce(glm::vec3 force);
+//    virtual void update();
+
 
     glm::vec3 getCurrentPosition();
     GLfloat getCharacterAngle(); // returns theta relative to x,z plane
@@ -28,6 +31,8 @@ protected:
     glm::vec3 _currentPosition;
     GLfloat _characterAngle;
     GLfloat _characterHeight;
+  //  GLfloat _characterMass;
+ //  GLfloat _characterAcceleration;
 private:
 
 };

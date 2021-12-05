@@ -29,6 +29,7 @@ MpEngine::MpEngine(int OPENGL_MAJOR_VERSION, int OPENGL_MINOR_VERSION,
     _mousePosition = glm::vec2(MOUSE_UNINITIALIZED, MOUSE_UNINITIALIZED );
     _leftMouseButtonState = GLFW_RELEASE;
 
+
 }
 
 MpEngine::~MpEngine() {
@@ -149,18 +150,11 @@ void MpEngine::_setupShaders() {
 
 void MpEngine::_setupBlockShader(){
     _blockShaderProgram = new CSCI441::ShaderProgram("shaders/block.v.glsl", "shaders/block.g.glsl","shaders/block.f.glsl" );
-//    _blockShaderProgram = new CSCI441::ShaderProgram("shaders/block.v.glsl", "shaders/block.f.glsl" );
+    //_blockShaderProgram = new CSCI441::ShaderProgram("shaders/block.v.glsl", "shaders/block.f.glsl" );
 
     _blockShaderAttributeLocations.vPos = _blockShaderProgram->getAttributeLocation("vPos");
-    _blockShaderAttributeLocations.textCoordinateIn = _blockShaderProgram->getAttributeLocation("textureMap");
 
     _blockShaderUniformLocations.mvpMatrix = _blockShaderProgram->getUniformLocation("mvpMatrix");
-    _blockShaderUniformLocations.textureMap = _blockShaderProgram->getUniformLocation("blockTexture");
-
-
-
-    CSCI441::setVertexAttributeLocations(_blockShaderAttributeLocations.vPos,
-                                         _blockShaderAttributeLocations.textCoordinateIn );
 }
 
 
@@ -188,6 +182,10 @@ void MpEngine::_setupBuffers() {
     */
     _createGroundBuffers();
     _generateEnvironment();
+
+    _block = new Block(glm::vec3(0,0,0));
+    _block->setupBlock(_blockShaderProgram->getShaderProgramHandle(), _blockShaderUniformLocations.mvpMatrix, _blockShaderAttributeLocations.vPos);
+
 }
 
 void MpEngine::_createGroundBuffers() {
@@ -225,6 +223,8 @@ void MpEngine::_createGroundBuffers() {
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbods[1]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+
 }
 
 void MpEngine::_generateEnvironment() {
@@ -288,6 +288,12 @@ void MpEngine::_generateEnvironment() {
 //    }
 }
 ///##################################################################################################
+
+void MpEngine::_setupTextures() {
+    //_textureHandles[TEXTURE_ID::DIRT] = _loadAndRegisterTexture("textures/dirt.jpg");
+}
+
+
 
 void MpEngine::_setupScene() {
     _cameraSpeed = glm::vec2(0.25f, 0.02f);
@@ -369,6 +375,11 @@ void MpEngine::_cleanupBuffers() {
     fprintf( stdout, "[INFO]: ...deleting models..\n" );
 }
 
+void MpEngine::_cleanupTextures() {
+    fprintf( stdout, "[INFO]: ...deleting textures\n" );
+    //glDeleteTextures(1, &_textureHandles[TEXTURE_ID::DIRT]);
+}
+
 //*************************************************************************************
 //
 // Rendering / Drawing Functions - this is where the magic happens!
@@ -417,14 +428,13 @@ void MpEngine::_renderScene(glm::mat4 viewMtx, glm::mat4 projMtx) {
     glUniform3fv(_lightingShaderUniformLocations.materialSpecular, 1, &groundMaterialSpec[0]);
 
     glBindVertexArray(_groundVAO);
-    glDrawElements(GL_TRIANGLE_STRIP, _numGroundPoints, GL_UNSIGNED_SHORT, (void*)0);
+    glDrawElements(GL_POINTS, _numGroundPoints, GL_UNSIGNED_SHORT, (void*)0);
 
 
     _blockShaderProgram->useProgram();
-    glm::mat4 modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
-    glm::mat4 mvpMtx = projMtx * viewMtx * modelMatrix;
-    _blockShaderProgram->setProgramUniform(_blockShaderUniformLocations.mvpMatrix, mvpMtx);
-    CSCI441::drawSolidCubeTextured( 40.0f );
+    glm::mat4 modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 10.0f, 0.0f));
+    _block->drawBlock(modelMatrix, viewMtx, projMtx);
+
 
 }
 

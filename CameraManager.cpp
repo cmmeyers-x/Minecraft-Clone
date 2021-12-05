@@ -143,9 +143,9 @@ void CameraManager::setCameraPoint() {
 }
 
 void CameraManager::drawAllCharacters(glm::mat4 modelMtx, glm::mat4 viewMtx, glm::mat4 projMtx){
-    for (auto character : characters){
-        character->drawCharacter(modelMtx, viewMtx, projMtx);
-    }
+//    for (auto character : characters){
+//        character->drawCharacter(modelMtx, viewMtx, projMtx);
+//    }
 }
 
 
