@@ -9,9 +9,11 @@
 #include "Tree.hpp"
 #include "CameraManager.hpp"
 #include "Block.hpp"
+#include "TextureManager.hpp"
+#include "Chunk.hpp"
+
 
 #include <vector>
-
 
 class MpEngine : public CSCI441::OpenGLEngine {
 public:
@@ -20,6 +22,17 @@ public:
                 const char* WINDOW_TITLE);
     ~MpEngine();
 
+
+    struct BlockShaderUniformLocations {
+        GLint mvpMatrix;
+        GLint textureMap;
+    }_blockShaderUniformLocations;
+
+    struct BlockShaderAttributeLocations{
+        GLint vPos;
+        GLint vertexNormal;
+        GLint texCoord;
+    }_blockShaderAttributeLocations;
 
     void run() final;
 
@@ -41,6 +54,8 @@ public:
     static constexpr GLfloat MOUSE_UNINITIALIZED = -9999.0f;
 
     void handleMouseScrollEvent(double xOffset, double yOffset);
+
+
     
 private:
     void _setupGLFW() final;
@@ -79,9 +94,12 @@ private:
     glm::vec2 _cameraSpeed;
 
    // Tree* _tree;
-    CameraManager* _cameraManager;
+    CameraManager* _cameraManager = nullptr;
 
-    Block* _block;
+    Block* _block = nullptr;
+    TextureManager* _textureManager = nullptr;
+
+    Chunk* _chunk = nullptr;
 
     /// \desc the size of the world (controls the ground size and locations of buildings)
     static constexpr GLfloat WORLD_SIZE = 55.0f;
@@ -192,17 +210,7 @@ private:
 
     CSCI441::ShaderProgram* _blockShaderProgram = nullptr;
 
-    struct BlockShaderUniformLocations {
-        GLint mvpMatrix;
-        GLint textureMap;
-    }_blockShaderUniformLocations;
 
-    struct BlockShaderAttributeLocations{
-        GLint vPos;
-        GLint textCoordinateIn;
-        GLint vertexNormal;
-        GLint texCoord;
-    }_blockShaderAttributeLocations;
 
 
 
@@ -214,6 +222,7 @@ private:
     /// \param projMtx camera projection matrix
     void _computeAndSendMatrixUniforms(glm::mat4 modelMtx, glm::mat4 viewMtx, glm::mat4 projMtx) const;
     //void _createBlockVAOs() const;
+    GLuint _loadAndRegisterTexture();
 };
 
 void lab05_keyboard_callback(GLFWwindow *window, int key, int scancode, int action, int mods );

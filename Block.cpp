@@ -7,62 +7,27 @@
 #include <CSCI441/objects.hpp>
 
 
+
 Block::Block(glm::vec3 blockLocation){
     this->_blockLocation = blockLocation;
 }
 
-static struct ShaderProgramUniformLocations {
-    /// \desc location of the precomputed ModelViewProjection matrix
-    GLint mvpMtx;
-} _shaderProgramUniformLocations;
 
-
-//void Block::setupBlock(GLuint shaderProgramHandle, GLint mvpMtxUniformLocation, GLint vPosAttributeLocation) {
-//   //  setup shader and uniform references
-//    this->_shaderProgramHandle = shaderProgramHandle;
-//    _shaderProgramUniformLocations.mvpMtx = mvpMtxUniformLocation;
-//    _blockShaderProgramAttributes.vPos = vPosAttributeLocation;
-//
-//    // setup Block information
-//    struct points{
-//        GLfloat x,y,z;
-//    };
-//
-//    /// 1 point for each of the 6 faces on the block
-//    // north is +x
-//    // east is +z
-//    points blockFacesArray[6] = {
-//            {0.5f,1.0f,0.5f}, // top
-//            {0.5f,0.0f,0.5f}, // bottom
-//            {1.0f,0.5f,0.5f}, // north
-//            {0.0f,0.5f,0.5f}, // south
-//            {1.0f,0.5f,0.5f}, // east
-//            {0.5f,0.5f,0.0f}  // west
-//    };
-//
-//
-//    // Create VBO/VAO
-//    glGenVertexArrays(1, &_staticBlockDescriptors._blockVAO);
-//    glGenBuffers(1, &_staticBlockDescriptors._blockVBO);
-//    glBindVertexArray(_staticBlockDescriptors._blockVAO);
-//    glBindBuffer(GL_ARRAY_BUFFER, _staticBlockDescriptors._blockVBO);
-//    glEnableVertexAttribArray( _blockShaderProgramAttributes.vPos );
-//    glVertexAttribPointer( _blockShaderProgramAttributes.vPos, 3, GL_FLOAT, GL_FALSE, sizeof(points), (void*)0);
-//    glBufferData(GL_ARRAY_BUFFER, sizeof(blockFacesArray), blockFacesArray, GL_STATIC_DRAW);
-//}
-
-
-void Block::setupBlock(GLuint shaderProgramHandle, GLint mvpMtxUniformLocation, GLint vPosAttributeLocation) {
+void Block::setupBlock(GLuint shaderProgramHandle, GLint mvpMatrix, GLint textureMap, GLint vPos, GLint vertexNormal, GLint texCoord){
 
     this->_shaderProgramHandle = shaderProgramHandle;
-    _shaderProgramUniformLocations.mvpMtx = mvpMtxUniformLocation;
-    _blockShaderProgramAttributes.vPos = vPosAttributeLocation;
 
-    glGenVertexArrays(1, &_staticBlockDescriptors._blockVAO);
-    glBindVertexArray(_staticBlockDescriptors._blockVAO);
+    _shaderAttributeLocations.vPos = vPos;
+    _shaderAttributeLocations.vertexNormal = vertexNormal;
+    _shaderAttributeLocations.texCoord = texCoord;
+    _shaderUniformLocations.mvpMatrix = mvpMatrix;
+    _shaderUniformLocations.textureMap = textureMap;
 
-    glGenBuffers( 1, &_staticBlockDescriptors._blockVBO );
-    glBindBuffer( GL_ARRAY_BUFFER, _staticBlockDescriptors._blockVBO );
+    glGenVertexArrays(1, &_blockDescriptors._blockVAO);
+    glBindVertexArray(_blockDescriptors._blockVAO);
+
+    glGenBuffers( 1, &_blockDescriptors._blockVBO );
+    glBindBuffer( GL_ARRAY_BUFFER, _blockDescriptors._blockVBO );
 
     GLfloat cornerPoint = _sideLength / 2.0f;
 
@@ -140,11 +105,36 @@ void Block::cleanupBlock() {
 
 void Block::drawBlock(glm::mat4 modelMtx, glm::mat4 viewMtx, glm::mat4 projMtx) {
     glUseProgram(_shaderProgramHandle);
+
     // Send over Uniforms
     glm::mat4 mvpMtx = projMtx * viewMtx * modelMtx;
-    glProgramUniformMatrix4fv(_shaderProgramHandle, _shaderProgramUniformLocations.mvpMtx, 1, GL_FALSE, &mvpMtx[0][0]);
-    glBindVertexArray(_staticBlockDescriptors._blockVAO);
+    glProgramUniformMatrix4fv(_shaderProgramHandle, _shaderUniformLocations.mvpMatrix, 1, GL_FALSE, &mvpMtx[0][0]);
 
-    //glDrawArrays(GL_POINTS, 0, 6);
+    // bind vao, vbo
+    glBindVertexArray(_blockDescriptors._blockVAO);
+    glBindBuffer( GL_ARRAY_BUFFER,  _blockDescriptors._blockVBO);
+
+    // bind attribute information
+
+    // vertex pos
+    glEnableVertexAttribArray( _shaderAttributeLocations.vPos );
+    glVertexAttribPointer(_shaderAttributeLocations.vPos, 3, GL_FLOAT, GL_FALSE, 0, (void*)0 );
+
+    // vertex normal
+    glEnableVertexAttribArray( _shaderAttributeLocations.vertexNormal );
+    glVertexAttribPointer( _shaderAttributeLocations.vertexNormal, 3, GL_FLOAT, GL_FALSE, 0, (void*)(sizeof(GLfloat)*36 *3) );
+
+    // texture coordinates
+    glEnableVertexAttribArray( _shaderAttributeLocations.texCoord );
+    glVertexAttribPointer( _shaderAttributeLocations.texCoord, 2, GL_FLOAT, GL_FALSE, 0, (void*)(sizeof(GLfloat)*36 *6) );
+
+    glBindTexture(GL_TEXTURE_2D, _shaderUniformLocations.textureMap);
+
     glDrawArrays( GL_TRIANGLES, 0, 36 );
+}
+
+
+void Block::setTexture(std::string name, GLuint handle) {
+    this->textureName = name;
+    _shaderUniformLocations.textureMap = handle;
 }
