@@ -200,6 +200,8 @@ private:
     struct BlockShaderAttributeLocations{
         GLint vPos;
         GLint textCoordinateIn;
+        GLint vertexNormal;
+        GLint texCoord;
     }_blockShaderAttributeLocations;
 
 

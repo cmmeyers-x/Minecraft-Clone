@@ -173,6 +173,8 @@ CMakeFiles/mp.dir/Block.cpp.o: \
  /home/cmmeyers/Dropbox/Graphics/include/CSCI441/OpenGLUtils.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/CSCI441/ShaderProgram.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/CSCI441/ShaderUtils.hpp \
+ /home/cmmeyers/Dropbox/Graphics/include/CSCI441/objects.hpp \
+ /home/cmmeyers/Dropbox/Graphics/include/CSCI441/teapot.hpp \
  /home/cmmeyers/Dropbox/Graphics/include/GL/gl.h \
  /home/cmmeyers/Dropbox/Graphics/include/GL/glew.h \
  /home/cmmeyers/Dropbox/Graphics/include/GLFW/glfw3.h \

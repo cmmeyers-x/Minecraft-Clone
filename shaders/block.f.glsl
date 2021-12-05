@@ -9,10 +9,12 @@
 // outputs
 out vec4 fragColorOut;                  // color to apply to this fragment
 
+
+
 void main() {
     // pass the interpolated color through as output
 //    vec4 fColor = texture(blockTexture, textCoordinateIn);
 //
 //    fragColorOut = fColor;
-    fragColorOut = vec4(1.0,1.0,1.0, 1.0);
+    fragColorOut = vec4(1.0,1.0,1.0,1.0);
 }

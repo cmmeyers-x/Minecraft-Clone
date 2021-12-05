@@ -47,8 +47,11 @@ private:
     struct ShaderProgramAttributes {
         /// \desc the vertex position
         GLint vPos;
+        GLint vNormal;
+        GLint texCoord;
     } _blockShaderProgramAttributes;
 
+    const GLfloat _sideLength = 1.0;
 };
 
 

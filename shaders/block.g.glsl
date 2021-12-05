@@ -8,7 +8,7 @@ layout (points) in;
 layout(points, max_vertices = 6) out;
 
 
-
+out vec3 color;
 
 
 void main() {
@@ -23,26 +23,10 @@ void main() {
 
     for (int i = 0; i < 6; ++i){
         gl_Position = mvpMatrix * (gl_in[i].gl_Position);
+        float i_float = float(i);
+
+        color = vec3(i_float/6.0,i_float/6.0,i_float/6.0);
         EmitVertex();
     }
     EndPrimitive();
-
-
-
-//    gl_Position = mvpMatrix * (gl_in[0].gl_Position);
-//
-//    EmitVertex();
-//
-//    gl_Position = mvpMatrix * (gl_in[0].gl_Position);
-//
-//    EmitVertex();
-//
-//    gl_Position = mvpMatrix * (gl_in[0].gl_Position);
-//
-//    EmitVertex();
-
-
-
-
-
 }

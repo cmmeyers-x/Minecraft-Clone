@@ -149,11 +149,14 @@ void MpEngine::_setupShaders() {
 
 
 void MpEngine::_setupBlockShader(){
-    _blockShaderProgram = new CSCI441::ShaderProgram("shaders/block.v.glsl", "shaders/block.g.glsl","shaders/block.f.glsl" );
-    //_blockShaderProgram = new CSCI441::ShaderProgram("shaders/block.v.glsl", "shaders/block.f.glsl" );
+    _blockShaderProgram = new CSCI441::ShaderProgram("shaders/block.v.glsl", "shaders/block.f.glsl" );
 
+    // attributes
     _blockShaderAttributeLocations.vPos = _blockShaderProgram->getAttributeLocation("vPos");
+    _blockShaderAttributeLocations.texCoord = _blockShaderProgram->getAttributeLocation("texCoord");
+    _blockShaderAttributeLocations.texCoord = _blockShaderProgram->getAttributeLocation("vertexNormal");
 
+    // uniforms
     _blockShaderUniformLocations.mvpMatrix = _blockShaderProgram->getUniformLocation("mvpMatrix");
 }
 
