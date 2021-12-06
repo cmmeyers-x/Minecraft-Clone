@@ -1,9 +1,9 @@
 //
-// Created by cmmeyers on 11/28/21.
+// Created by cmmeyers on 12/5/21.
 //
 
-#ifndef MP_BLOCK_HPP
-#define MP_BLOCK_HPP
+#ifndef MP_SKYBOX_HPP
+#define MP_SKYBOX_HPP
 #include <CSCI441/ShaderProgram.hpp>
 
 #include <GL/glew.h>
@@ -12,28 +12,29 @@
 #include <CSCI441/OpenGLEngine.hpp>
 #include <string>
 
-class Block {
+
+class Skybox {
 public:
-    Block(glm::vec3 blockLocation);
-    void drawBlock(glm::mat4 modelMtx, glm::mat4 viewMtx, glm::mat4 projMtx);
+    Skybox();
+    void drawSky(glm::mat4 modelMtx, glm::mat4 viewMtx, glm::mat4 projMtx);
 
 
     // Creates static VAOs and VBOs send vertex data to gpu for future rendering
-    void setupBlock(GLuint shaderProgramHandle, GLint mvpMatrix, GLint textureMap, GLint vPos, GLint vertexNormal, GLint texCoord);
+    void setupSky(GLuint shaderProgramHandle, GLint mvpMatrix, GLint textureMap, GLint vPos, GLint vertexNormal, GLint texCoord);
     void setTexture(std::string name, GLuint handle);
     std::string getTextureName();
-    void cleanupBlock();
+    void cleanupSky();
 
 
 private:
     // the position of the block in the world
-    glm::vec3 _blockLocation;
+   // glm::vec3 _blockLocation;
     std::string textureName;
 
     struct BlockDescriptors {
-        GLuint _blockVAO;
-        GLuint _blockVBO;
-    } _blockDescriptors;
+        GLuint _skyVAO;
+        GLuint _skyVBO;
+    } _skyDescriptors;
 
     /// \desc handle of the shader program to use when drawing the block
     GLuint _shaderProgramHandle;
@@ -44,7 +45,6 @@ private:
         GLint textureMap;
     }_shaderUniformLocations;
 
-
     struct BlockShaderAttributeLocations{
         GLint vPos;
         GLint vertexNormal;
@@ -52,8 +52,8 @@ private:
     }_shaderAttributeLocations;
 
 
-    const GLfloat _sideLength = 1.0;
+    const GLfloat _skySize = 100.0;
 };
 
 
-#endif //MP_BLOCK_HPP
+#endif //MP_SKYBOX_HPP

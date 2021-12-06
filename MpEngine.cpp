@@ -194,12 +194,25 @@ void MpEngine::_setupBuffers() {
                        _blockShaderAttributeLocations.vertexNormal,
                        _blockShaderAttributeLocations.texCoord);
 
-    _block->setTexture("dirt", _textureManager->getTextureHandle("dirt"));
+//    _block->setTexture("dirt", _textureManager->getTextureHandle("dirt"));
 
-
-    _chunk = new Chunk(_block, _textureManager);
-    _chunk->generateChunk(glm::vec3(0,0,0));
-
+//    Block *stoneBlock = new Block(glm::vec3(0,0,0));
+//    stoneBlock->setupBlock(_blockShaderProgram->getShaderProgramHandle(),
+//                       _blockShaderUniformLocations.mvpMatrix,
+//                       _blockShaderUniformLocations.textureMap,
+//                       _blockShaderAttributeLocations.vPos,
+//                       _blockShaderAttributeLocations.vertexNormal,
+//                       _blockShaderAttributeLocations.texCoord);
+//
+//
+//    std::cout << " " << _textureManager->getTextureHandle("stone") << " " << _textureManager->getTextureHandle("dirt") << std::endl;
+//
+//
+//    stoneBlock->setTexture("dirt", _textureManager->getTextureHandle("dirt"));
+//
+//
+//    _chunk = new Chunk(stoneBlock, _textureManager);
+//    _chunk->generateChunk(glm::vec3(0,0,0));
 
 
     CSCI441::drawSolidSphere(100,32,32);
@@ -455,7 +468,7 @@ void MpEngine::_renderScene(glm::mat4 viewMtx, glm::mat4 projMtx) {
     modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 0.0f));
     _block->drawBlock(modelMatrix, viewMtx, projMtx);
 
-    _chunk->drawChunk(glm::mat4(1.0f), viewMtx, projMtx);
+//    _chunk->drawChunk(glm::mat4(1.0f), viewMtx, projMtx);
 }
 
 void MpEngine::_updateScene() {

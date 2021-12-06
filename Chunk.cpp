@@ -30,10 +30,10 @@ void Chunk::generateChunk(glm::vec3 center) {
 void Chunk::drawChunk(glm::mat4 modelMtx, glm::mat4 viewMtx, glm::mat4 projMtx) {
     for (auto row : _blocks){
         for (auto block_atr : row){
-            std::cout << block_atr.position.x << " " << block_atr.position.y << " " << block_atr.position.z << " ";
+//            std::cout << block_atr.position.x << " " << block_atr.position.y << " " << block_atr.position.z << " ";
             _block->drawBlock(glm::translate(modelMtx, block_atr.position), viewMtx, projMtx);
         }
-        std::cout << std::endl;
+//        std::cout << std::endl;
     }
 }
 

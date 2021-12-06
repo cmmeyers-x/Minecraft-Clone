@@ -9,15 +9,14 @@ TextureManager::TextureManager() {
 }
 
 GLuint TextureManager::getTextureHandle(std::string textureName) {
-    auto itr = texHandles.find("filename");
-    // in the case of find error returns the first texture in the textureHandleMap
-    return(itr != texHandles.end() ? itr->second : texHandles.begin()->second);
+    return(texHandles.find(textureName)->second);
 }
 
 void TextureManager::LoadTextures(std::string path) {
     for (auto filename : textureFilenames){
         std::string fullPath = path + filename;
         GLuint texHandle = _loadAndRegisterTexture(fullPath.c_str());
+        std::cout << "path: " << fullPath << " handle: " << texHandle << std::endl;
         std::string parsedFileName = filename.substr(0, filename.find('.')); // dirt.jpg -> dirt
         texHandles.insert(std::pair<std::string, GLuint>(filename, texHandle));
     }
