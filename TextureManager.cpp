@@ -9,16 +9,17 @@ TextureManager::TextureManager() {
 }
 
 GLuint TextureManager::getTextureHandle(std::string textureName) {
-    return(texHandles.find(textureName)->second);
+    auto handleItr = texHandles.find(textureName);
+    assert(handleItr != texHandles.end());
+    return(handleItr->second);
 }
 
 void TextureManager::LoadTextures(std::string path) {
     for (auto filename : textureFilenames){
         std::string fullPath = path + filename;
         GLuint texHandle = _loadAndRegisterTexture(fullPath.c_str());
-        std::cout << "path: " << fullPath << " handle: " << texHandle << std::endl;
         std::string parsedFileName = filename.substr(0, filename.find('.')); // dirt.jpg -> dirt
-        texHandles.insert(std::pair<std::string, GLuint>(filename, texHandle));
+        texHandles.insert({parsedFileName,texHandle});
     }
 }
 
@@ -72,6 +73,7 @@ GLuint TextureManager::_loadAndRegisterTexture(const char* FILENAME) {
         fprintf( stdout, "[INFO]: %s texture map read in with handle %d\n", FILENAME, textureHandle);
 
         // release image memory from CPU - it now lives on the GPU
+        // be free memory. You can fly free and be used in another Chrome tab
         stbi_image_free(data);
     } else {
         // load failed

@@ -128,10 +128,7 @@ void Block::drawBlock(glm::mat4 modelMtx, glm::mat4 viewMtx, glm::mat4 projMtx) 
     glEnableVertexAttribArray( _shaderAttributeLocations.texCoord );
     glVertexAttribPointer( _shaderAttributeLocations.texCoord, 2, GL_FLOAT, GL_FALSE, 0, (void*)(sizeof(GLfloat)*36 *6) );
 
-
     glBindTexture(GL_TEXTURE_2D, _shaderUniformLocations.textureMap);
-    std::cout << glGetError() << std::endl;
-
     glDrawArrays( GL_TRIANGLES, 0, 36 );
 }
 

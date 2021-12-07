@@ -21,7 +21,7 @@
 // Our main function
 int main() {
 
-    auto labEngine = new MpEngine(4, 1, 640, 480, "Lab05: Flight Simulator v0.41 alpha");
+    auto labEngine = new MpEngine(4, 1, 1024, 768, "Dirt Block Simulator");
     labEngine->initialize();
     if (labEngine->getError() == CSCI441::OpenGLEngine::OPENGL_ENGINE_ERROR_NO_ERROR) {
         labEngine->run();

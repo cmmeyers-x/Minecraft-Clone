@@ -41,7 +41,7 @@ private:
 
     struct shaderUniformLocations {
         GLint mvpMatrix;
-        GLint textureMap;
+        GLuint textureMap;
     }_shaderUniformLocations;
 
 

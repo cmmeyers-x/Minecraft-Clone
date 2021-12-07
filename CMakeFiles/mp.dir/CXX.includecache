@@ -20,14 +20,6 @@ iostream
 vector
 -
 
-/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Block.cpp
-Block.hpp
-/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Block.hpp
-iostream
--
-CSCI441/objects.hpp
--
-
 /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Block.hpp
 CSCI441/ShaderProgram.hpp
 -
@@ -65,12 +57,6 @@ Deimos.hpp
 /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Deimos.hpp
 Flashlight.hpp
 /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Flashlight.hpp
-
-/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Chunk.cpp
-iostream
--
-Chunk.hpp
-/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Chunk.hpp
 
 /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Chunk.hpp
 string
@@ -188,24 +174,10 @@ map
 vector
 -
 
-/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Tree.cpp
-Tree.hpp
-/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Tree.hpp
-MpEngine.hpp
-/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/MpEngine.hpp
-CSCI441/objects.hpp
--
-
 /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Tree.hpp
 GL/glew.h
 -
 glm/glm.hpp
--
-
-/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/main.cpp
-MpEngine.hpp
-/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/MpEngine.hpp
-stb_image.h
 -
 
 /home/cmmeyers/Dropbox/Graphics/include/CSCI441/Camera.hpp

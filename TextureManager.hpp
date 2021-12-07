@@ -31,7 +31,7 @@ private:
 
     std::string textureFilenames[NUM_TEXTURES] = {
             "dirt.jpg",
-            "stone.jpg",
+            "stone.png",
             "water.jpg",
     };
 
