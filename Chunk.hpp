@@ -38,9 +38,9 @@ private:
     TextureManager *_textureManager = nullptr;
 
     glm::vec3 _chunkCenter;
-    std::vector<std::vector<glm::mat4>> _blocks;
+    std::vector<glm::mat4> _blocks;
 
-    static const int CHUNK_WIDTH = 16;
+    static const int CHUNK_WIDTH = 1024;
     static const int CHUNK_HEIGHT = 32;
     static const int BLOCK_SPACING = 1;
 

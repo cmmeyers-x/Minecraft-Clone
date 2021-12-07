@@ -140,7 +140,7 @@ void Block::drawBlock(glm::mat4 modelMtx, glm::mat4 viewMtx, glm::mat4 projMtx) 
     std::cout << "Sending TexCords : " << glGetError() << std::endl;
 
     glBindTexture(GL_TEXTURE_2D, _shaderUniformLocations.textureMap);
-    glDrawArraysInstanced( GL_TRIANGLES, 0, 36, 16); // TODO refactor
+    glDrawArraysInstanced( GL_TRIANGLES, 0, 36, 1048576); // TODO refactor
     std::cout << "226 : " << glGetError() << std::endl;
 
 }

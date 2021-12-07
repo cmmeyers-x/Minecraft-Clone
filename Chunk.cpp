@@ -18,29 +18,31 @@ Chunk::~Chunk() {
 void Chunk::generateChunk(glm::vec3 center) {
     this->_chunkCenter = center;
 
-    int amount = CHUNK_WIDTH;
-    modelMatrices = new glm::mat4[amount];
+    modelMatrices = new glm::mat4[CHUNK_WIDTH * CHUNK_WIDTH];
 
-
-    for (int i = 0; i < CHUNK_WIDTH; ++i){
-        glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(i,0.0f,0.0f));
-        modelMatrices[i] = model;
+    int k = 0;
+    for (int j = 0; j < CHUNK_WIDTH; ++j){
+        for (int i = 0; i < CHUNK_WIDTH; ++i, ++k){
+            glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(i,0.0f,j));
+            modelMatrices[k] = model;
+        }
     }
 
-//    for (int i = (int)center.x - CHUNK_WIDTH / 2; i < CHUNK_WIDTH / 2; ++i){
-//        std::vector<glm::mat4> row;
-//        for (int j = (int)center.x - CHUNK_WIDTH / 2; j < CHUNK_WIDTH / 2; ++j){
-//            glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(i,0.0f,0.0f));
-//            row.push_back(model);
-//        }
-//        _blocks.push_back(row);
+//    for (int c = 0; c < CHUNK_WIDTH * CHUNK_WIDTH; c++){
+//        std::cout << modelMatrices[]
 //    }
 
+//    for (int i = (int)center.x - CHUNK_WIDTH / 2; i < CHUNK_WIDTH / 2; ++i){
+//        for (int j = (int)center.x - CHUNK_WIDTH / 2; j < CHUNK_WIDTH / 2; ++j){
+//            glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(i,0.0f,j));
+//            _blocks.push_back(model);
+//        }
+//    }
 
     // configured instanced array to represent those modelMatrices
     glGenBuffers(1, &_instanceMatrix); // Error 1282 pops up here
     glBindBuffer(GL_ARRAY_BUFFER, _instanceMatrix);
-    glBufferData(GL_ARRAY_BUFFER, amount * sizeof(glm::mat4), &modelMatrices[0], GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, CHUNK_WIDTH * CHUNK_WIDTH * sizeof(glm::mat4), &modelMatrices[0], GL_STATIC_DRAW);
 
 
     glBindVertexArray(_block->getBlockVAO());
