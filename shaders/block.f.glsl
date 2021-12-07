@@ -16,7 +16,6 @@ void main() {
 //    vec4 fColor = texture(blockTexture, textCoordinateIn);
 //
 //    fragColorOut = fColor;
-//  fragColorOut = vec4(1.0,1.0,1.0,1.0);
-
+   //fragColorOut = vec4(1.0,1.0,1.0,1.0);
     fragColorOut = texture(textureMap, textureCordinate);
 }

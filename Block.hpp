@@ -14,12 +14,13 @@
 
 class Block {
 public:
-    Block(glm::vec3 blockLocation);
+    Block();
     void drawBlock(glm::mat4 modelMtx, glm::mat4 viewMtx, glm::mat4 projMtx);
 
 
     // Creates static VAOs and VBOs send vertex data to gpu for future rendering
-    void setupBlock(GLuint shaderProgramHandle, GLint mvpMatrix, GLint textureMap, GLint vPos, GLint vertexNormal, GLint texCoord);
+    GLuint getBlockVAO();
+    void setupBlock(GLuint shaderProgramHandle, GLint projection, GLint view, GLint textureMap, GLint vPos, GLint vertexNormal, GLint texCoord);
     void setTexture(std::string name, GLuint handle);
     std::string getTextureName();
     void cleanupBlock();
@@ -40,7 +41,8 @@ private:
     /// \desc stores the uniform locations needed for the plan information
 
     struct shaderUniformLocations {
-        GLint mvpMatrix;
+        GLint projection;
+        GLint view;
         GLuint textureMap;
     }_shaderUniformLocations;
 

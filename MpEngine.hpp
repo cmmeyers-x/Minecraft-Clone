@@ -24,7 +24,8 @@ public:
 
 
     struct BlockShaderUniformLocations {
-        GLint mvpMatrix;
+        GLint projection;
+        GLint view;
         GLint textureMap;
     }_blockShaderUniformLocations;
 
@@ -32,6 +33,7 @@ public:
         GLint vPos;
         GLint vertexNormal;
         GLint texCoord;
+        GLint instanceMatrix;
     }_blockShaderAttributeLocations;
 
     void run() final;

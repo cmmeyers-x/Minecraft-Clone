@@ -8,19 +8,19 @@
 
 
 
-Block::Block(glm::vec3 blockLocation){
-    this->_blockLocation = blockLocation;
-}
+Block::Block(){}
 
 
-void Block::setupBlock(GLuint shaderProgramHandle, GLint mvpMatrix, GLint textureMap, GLint vPos, GLint vertexNormal, GLint texCoord){
+
+void Block::setupBlock(GLuint shaderProgramHandle, GLint projection, GLint view, GLint textureMap, GLint vPos, GLint vertexNormal, GLint texCoord){
 
     this->_shaderProgramHandle = shaderProgramHandle;
 
     _shaderAttributeLocations.vPos = vPos;
     _shaderAttributeLocations.vertexNormal = vertexNormal;
     _shaderAttributeLocations.texCoord = texCoord;
-    _shaderUniformLocations.mvpMatrix = mvpMatrix;
+    _shaderUniformLocations.projection = projection;
+    _shaderUniformLocations.view = view;
     _shaderUniformLocations.textureMap = textureMap;
 
     glGenVertexArrays(1, &_blockDescriptors._blockVAO);
@@ -96,6 +96,12 @@ void Block::setupBlock(GLuint shaderProgramHandle, GLint mvpMatrix, GLint textur
     glBufferSubData( GL_ARRAY_BUFFER, 0, sizeof(GLfloat) * 36 * 3, vertices );
     glBufferSubData( GL_ARRAY_BUFFER, sizeof(GLfloat) * 36 * 3, sizeof(GLfloat) * 36 * 3, normals );
     glBufferSubData( GL_ARRAY_BUFFER, sizeof(GLfloat) * 36 * 6, sizeof(GLfloat) * 36 * 2, texCoords );
+
+
+}
+
+GLuint Block::getBlockVAO() {
+    return(this->_blockDescriptors._blockVAO);
 }
 
 void Block::cleanupBlock() {
@@ -107,31 +113,37 @@ void Block::drawBlock(glm::mat4 modelMtx, glm::mat4 viewMtx, glm::mat4 projMtx) 
     glUseProgram(_shaderProgramHandle);
 
     // Send over Uniforms
-    glm::mat4 mvpMtx = projMtx * viewMtx * modelMtx;
-    glProgramUniformMatrix4fv(_shaderProgramHandle, _shaderUniformLocations.mvpMatrix, 1, GL_FALSE, &mvpMtx[0][0]);
-
+    // the Model Matrix is sent over as an instancedArray
+    glProgramUniformMatrix4fv(_shaderProgramHandle, _shaderUniformLocations.projection, 1, GL_FALSE, &projMtx[0][0]);
+    glProgramUniformMatrix4fv(_shaderProgramHandle, _shaderUniformLocations.view, 1, GL_FALSE, &viewMtx[0][0]);
+    std::cout << "201 : " << glGetError() << std::endl;
     // bind vao, vbo
     glBindVertexArray(_blockDescriptors._blockVAO);
     glBindBuffer( GL_ARRAY_BUFFER,  _blockDescriptors._blockVBO);
+    std::cout << "205 : " << glGetError() << std::endl;
 
     // bind attribute information
 
     // vertex pos
     glEnableVertexAttribArray( _shaderAttributeLocations.vPos );
     glVertexAttribPointer(_shaderAttributeLocations.vPos, 3, GL_FLOAT, GL_FALSE, 0, (void*)0 );
+    std::cout << "211 : " << glGetError() << std::endl;
 
     // vertex normal
     glEnableVertexAttribArray( _shaderAttributeLocations.vertexNormal );
     glVertexAttribPointer( _shaderAttributeLocations.vertexNormal, 3, GL_FLOAT, GL_FALSE, 0, (void*)(sizeof(GLfloat)*36 *3) );
+    std::cout << "Sending Vert Normals : " << glGetError() << std::endl;
 
     // texture coordinates
     glEnableVertexAttribArray( _shaderAttributeLocations.texCoord );
     glVertexAttribPointer( _shaderAttributeLocations.texCoord, 2, GL_FLOAT, GL_FALSE, 0, (void*)(sizeof(GLfloat)*36 *6) );
+    std::cout << "Sending TexCords : " << glGetError() << std::endl;
 
     glBindTexture(GL_TEXTURE_2D, _shaderUniformLocations.textureMap);
-    glDrawArrays( GL_TRIANGLES, 0, 36 );
-}
+    glDrawArraysInstanced( GL_TRIANGLES, 0, 36, 16); // TODO refactor
+    std::cout << "226 : " << glGetError() << std::endl;
 
+}
 
 void Block::setTexture(std::string name, GLuint handle) {
     this->textureName = name;

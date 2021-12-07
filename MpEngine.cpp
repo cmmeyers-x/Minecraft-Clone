@@ -30,6 +30,9 @@ MpEngine::MpEngine(int OPENGL_MAJOR_VERSION, int OPENGL_MINOR_VERSION,
 
 MpEngine::~MpEngine() {
     delete _cameraManager;
+    delete _textureManager;
+    delete _block;
+    delete _chunk;
 }
 
 void MpEngine::handleKeyEvent(GLint key, GLint action) {
@@ -108,6 +111,7 @@ void MpEngine::_setupOpenGL() {
 }
 
 void MpEngine::_setupShaders() {
+
     _lightingShaderProgram = new CSCI441::ShaderProgram("shaders/lab05.v.glsl", "shaders/lab05.f.glsl" );
     _lightingShaderUniformLocations.mvpMatrix      = _lightingShaderProgram->getUniformLocation("mvpMatrix");
     _lightingShaderAttributeLocations.vPos         = _lightingShaderProgram->getAttributeLocation("vPos");
@@ -146,14 +150,19 @@ void MpEngine::_setupShaders() {
 void MpEngine::_setupBlockShader(){
     _blockShaderProgram = new CSCI441::ShaderProgram("shaders/block.v.glsl", "shaders/block.f.glsl" );
 
+
+
     // attributes
     _blockShaderAttributeLocations.vPos = _blockShaderProgram->getAttributeLocation("vPos");
     _blockShaderAttributeLocations.texCoord = _blockShaderProgram->getAttributeLocation("textCordinateIn");
     _blockShaderAttributeLocations.vertexNormal = _blockShaderProgram->getAttributeLocation("vertexNormal");
+    _blockShaderAttributeLocations.instanceMatrix = _blockShaderProgram->getAttributeLocation("instanceMatrix");
 
     // uniforms
-    _blockShaderUniformLocations.mvpMatrix = _blockShaderProgram->getUniformLocation("mvpMatrix");
+    _blockShaderUniformLocations.projection = _blockShaderProgram->getUniformLocation("projection");
+    _blockShaderUniformLocations.view = _blockShaderProgram->getUniformLocation("view");
     _blockShaderUniformLocations.textureMap = _blockShaderProgram->getUniformLocation("textureMap");
+
 }
 
 
@@ -173,6 +182,7 @@ void MpEngine::_setupBuffers() {
                                 _lightingShaderUniformLocations.materialColor);
 
 
+
     /*
     _tree = new Tree(_lightingShaderProgram->getShaderProgramHandle(),
                      _lightingShaderUniformLocations.mvpMatrix,
@@ -182,39 +192,39 @@ void MpEngine::_setupBuffers() {
     _createGroundBuffers();
     _generateEnvironment();
 
+
+
     _textureManager = new TextureManager();
     _textureManager->LoadTextures("textures/");
 
 
-    _block = new Block(glm::vec3(0,0,0));
+
+    _block = new Block();
     _block->setupBlock(_blockShaderProgram->getShaderProgramHandle(),
-                       _blockShaderUniformLocations.mvpMatrix,
+                       _blockShaderUniformLocations.projection,
+                       _blockShaderUniformLocations.view,
                        _blockShaderUniformLocations.textureMap,
                        _blockShaderAttributeLocations.vPos,
                        _blockShaderAttributeLocations.vertexNormal,
                        _blockShaderAttributeLocations.texCoord);
     _block->setTexture("dirt", _textureManager->getTextureHandle("dirt"));
 
-    Block *stoneBlock = new Block(glm::vec3(0,0,0));
+
+
+    Block *stoneBlock = new Block();
     stoneBlock->setupBlock(_blockShaderProgram->getShaderProgramHandle(),
-                       _blockShaderUniformLocations.mvpMatrix,
-                       _blockShaderUniformLocations.textureMap,
-                       _blockShaderAttributeLocations.vPos,
-                       _blockShaderAttributeLocations.vertexNormal,
-                       _blockShaderAttributeLocations.texCoord);
-
-
-    std::cout << " " << _textureManager->getTextureHandle("stone") << " " << _textureManager->getTextureHandle("dirt") << std::endl;
-
-
+                           _blockShaderUniformLocations.projection,
+                           _blockShaderUniformLocations.view,
+                           _blockShaderUniformLocations.textureMap,
+                           _blockShaderAttributeLocations.vPos,
+                           _blockShaderAttributeLocations.vertexNormal,
+                           _blockShaderAttributeLocations.texCoord);
     stoneBlock->setTexture("stone", _textureManager->getTextureHandle("stone"));
+
 
 
     _chunk = new Chunk(stoneBlock, _textureManager);
     _chunk->generateChunk(glm::vec3(0,0,0));
-
-
-    CSCI441::drawSolidSphere(100,32,32);
 
 }
 
@@ -253,7 +263,6 @@ void MpEngine::_createGroundBuffers() {
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbods[1]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
 
 }
 
@@ -415,8 +424,10 @@ void MpEngine::_cleanupTextures() {
 // Rendering / Drawing Functions - this is where the magic happens!
 
 void MpEngine::_renderScene(glm::mat4 viewMtx, glm::mat4 projMtx) {
+
     // use our lighting shader program
     _lightingShaderProgram->useProgram();
+
 
     glm::vec3 materialSpecularCharacters = glm::vec3(0.6f, 0.6f, 0.6f);
   //  glm::vec3 materialSpecularTrees = glm::vec3(0.4f, 0.4f, 0.4f);
@@ -461,11 +472,12 @@ void MpEngine::_renderScene(glm::mat4 viewMtx, glm::mat4 projMtx) {
 //    glDrawElements(GL_TRIANGLE_STRIP, _numGroundPoints, GL_UNSIGNED_SHORT, (void*)0);
 
 
-    _blockShaderProgram->useProgram();
-    glm::mat4 modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-    _block->drawBlock(modelMatrix, viewMtx, projMtx);
-    modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 0.0f));
-    _block->drawBlock(modelMatrix, viewMtx, projMtx);
+//    _blockShaderProgram->useProgram();
+//    glm::mat4 modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+//    _block->drawBlock(modelMatrix, viewMtx, projMtx);
+//    modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 0.0f));
+//    _block->drawBlock(modelMatrix, viewMtx, projMtx);
+
 
     _chunk->drawChunk(glm::mat4(1.0f), viewMtx, projMtx);
 }

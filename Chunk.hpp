@@ -31,13 +31,14 @@ private:
         // texture type?
     };
 
-
+    glm::mat4* modelMatrices;
+    GLuint _instanceMatrix;
 
     Block *_block = nullptr;
     TextureManager *_textureManager = nullptr;
 
     glm::vec3 _chunkCenter;
-    std::vector<std::vector<block_attributes>> _blocks;
+    std::vector<std::vector<glm::mat4>> _blocks;
 
     static const int CHUNK_WIDTH = 16;
     static const int CHUNK_HEIGHT = 32;
