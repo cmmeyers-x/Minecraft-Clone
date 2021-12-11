@@ -31,8 +31,6 @@ MpEngine::MpEngine(int OPENGL_MAJOR_VERSION, int OPENGL_MINOR_VERSION,
 MpEngine::~MpEngine() {
     delete _cameraManager;
     delete _textureManager;
-    delete _block;
-    delete _chunk;
 }
 
 void MpEngine::handleKeyEvent(GLint key, GLint action) {
@@ -198,19 +196,6 @@ void MpEngine::_setupBuffers() {
     _textureManager->LoadTextures("textures/");
 
 
-
-    _block = new Block();
-    _block->setupBlock(_blockShaderProgram->getShaderProgramHandle(),
-                       _blockShaderUniformLocations.projection,
-                       _blockShaderUniformLocations.view,
-                       _blockShaderUniformLocations.textureMap,
-                       _blockShaderAttributeLocations.vPos,
-                       _blockShaderAttributeLocations.vertexNormal,
-                       _blockShaderAttributeLocations.texCoord);
-    _block->setTexture("dirt", _textureManager->getTextureHandle("dirt"));
-
-
-
     Block *stoneBlock = new Block();
     stoneBlock->setupBlock(_blockShaderProgram->getShaderProgramHandle(),
                            _blockShaderUniformLocations.projection,
@@ -220,12 +205,8 @@ void MpEngine::_setupBuffers() {
                            _blockShaderAttributeLocations.vertexNormal,
                            _blockShaderAttributeLocations.texCoord);
     stoneBlock->setTexture("stone", _textureManager->getTextureHandle("stone"));
-
-
-
     _chunk = new Chunk(stoneBlock);
     _chunk->generateChunk(glm::vec3(0,0,0));
-
 }
 
 void MpEngine::_createGroundBuffers() {
@@ -478,9 +459,10 @@ void MpEngine::_renderScene(glm::mat4 viewMtx, glm::mat4 projMtx) {
 //    modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 0.0f));
 //    _block->drawBlock(modelMatrix, viewMtx, projMtx);
 
-
     _chunk->drawChunk(viewMtx, projMtx);
 }
+
+
 
 void MpEngine::_updateScene() {
     // turn right

@@ -58,6 +58,12 @@ Deimos.hpp
 Flashlight.hpp
 /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Flashlight.hpp
 
+/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Chunk.cpp
+iostream
+-
+Chunk.hpp
+/home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Chunk.hpp
+
 /home/cmmeyers/Dropbox/Graphics/Minecraft/Minecraft-Clone/Chunk.hpp
 string
 -

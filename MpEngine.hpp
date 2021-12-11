@@ -79,7 +79,8 @@ private:
     void _updateScene();
 
     void _setupBlockShader();
-
+    void _generateChunks();
+    void _drawChunks(glm::mat4 view, glm::mat4 proj);
     /// \desc tracks the number of different keys that can be present as determined by GLFW
     static constexpr GLuint NUM_KEYS = GLFW_KEY_LAST;
     /// \desc boolean array tracking each key state.  if true, then the key is in a pressed or held
@@ -98,10 +99,10 @@ private:
    // Tree* _tree;
     CameraManager* _cameraManager = nullptr;
 
-    Block* _block = nullptr;
     TextureManager* _textureManager = nullptr;
 
-    Chunk* _chunk = nullptr;
+    std::vector<Chunk*> _chunkVect;
+    Chunk* _chunk;
 
     /// \desc the size of the world (controls the ground size and locations of buildings)
     static constexpr GLfloat WORLD_SIZE = 55.0f;
