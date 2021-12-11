@@ -223,7 +223,7 @@ void MpEngine::_setupBuffers() {
 
 
 
-    _chunk = new Chunk(stoneBlock, _textureManager);
+    _chunk = new Chunk(stoneBlock);
     _chunk->generateChunk(glm::vec3(0,0,0));
 
 }
@@ -479,7 +479,7 @@ void MpEngine::_renderScene(glm::mat4 viewMtx, glm::mat4 projMtx) {
 //    _block->drawBlock(modelMatrix, viewMtx, projMtx);
 
 
-    _chunk->drawChunk(glm::mat4(1.0f), viewMtx, projMtx);
+    _chunk->drawChunk(viewMtx, projMtx);
 }
 
 void MpEngine::_updateScene() {

@@ -6,47 +6,82 @@
 #include "Chunk.hpp"
 
 
-Chunk::Chunk(Block *_block, TextureManager *_textureManager) {
+Chunk::Chunk(Block *_block) {
     this->_block = _block;
-    this->_textureManager = _textureManager;
 }
 
 Chunk::~Chunk() {
-    delete(modelMatrices);
+    delete(_block);
 }
+
+
+void Chunk::deleteBlock(int x, int y, int z) {
+    // iterate through _blockInformation to find block w/ matching cords (x + y + z) = index
+    // if a _blockInformation is found we can delete that object
+    for (int i = 0; i < _blockInformation.size(); ++i){
+        auto block_attr = _blockInformation[i];
+        if (block_attr.x == x && block_attr.y == y && block_attr.z == z){
+            _blockInformation.erase(_blockInformation.begin() + i);
+            std::cout << "Deleting block" << std::endl;
+            return;
+        }
+    }
+    std::cerr << "Could not find block in chunk" << std::endl;
+
+    _regenerateChunk();
+}
+
+void Chunk::addBlock(int x, int y, int z) {
+    // iterate through _blockInformation to find block w/ matching cords (x + y + z) = index
+    // figure out the orientation of block viewed
+    // add _block and _blockInformation at corresponding index
+    // regenerate the chunk
+}
+
+
+void Chunk::_regenerateChunk() {
+
+    glm::mat4 chunkCenterModel = glm::translate(glm::mat4(1.0f),_chunkCenter);
+    std::vector<glm::mat4> blockModelMatrices;
+
+    // loop through block information and reconstruct array of model matrices
+    for (auto block_attr : _blockInformation){
+        blockModelMatrices.emplace_back(glm::translate(chunkCenterModel, glm::vec3(block_attr.x, block_attr.y, block_attr.z)));
+    }
+    _transferChunkToGPU(blockModelMatrices);
+}
+
+
 
 void Chunk::generateChunk(glm::vec3 center) {
     this->_chunkCenter = center;
 
-    modelMatrices = new glm::mat4[CHUNK_WIDTH * CHUNK_WIDTH];
+    glm::mat4 chunkCenterModel = glm::translate(glm::mat4(1.0f),center);
+    std::vector<glm::mat4> blockModelMatrices;
 
-    int k = 0;
-    for (int j = 0; j < CHUNK_WIDTH; ++j){
-        for (int i = 0; i < CHUNK_WIDTH; ++i, ++k){
-            glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(i,0.0f,j));
-            modelMatrices[k] = model;
+    // iterate through the chunk and place blocks
+    // since the array is 1d keep a block information struct to help us index back in
+    for (int x = (int)center.x - CHUNK_WIDTH / 2; x < CHUNK_WIDTH / 2; ++x){
+        for (int z = (int)center.x - CHUNK_WIDTH / 2; z < CHUNK_WIDTH / 2; ++z){
+            for (int y = 0; y < CHUNK_HEIGHT; ++y){
+                glm::mat4 model = glm::translate(chunkCenterModel, glm::vec3(x,y,z));
+                blockModelMatrices.push_back(model);
+                _blockInformation.push_back({x,y,z});
+            }
         }
     }
 
-//    for (int c = 0; c < CHUNK_WIDTH * CHUNK_WIDTH; c++){
-//        std::cout << modelMatrices[]
-//    }
+    _transferChunkToGPU(blockModelMatrices);
+}
 
-//    for (int i = (int)center.x - CHUNK_WIDTH / 2; i < CHUNK_WIDTH / 2; ++i){
-//        for (int j = (int)center.x - CHUNK_WIDTH / 2; j < CHUNK_WIDTH / 2; ++j){
-//            glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(i,0.0f,j));
-//            _blocks.push_back(model);
-//        }
-//    }
-
+void Chunk::_transferChunkToGPU(std::vector<glm::mat4> blocks) {
     // configured instanced array to represent those modelMatrices
-    glGenBuffers(1, &_instanceMatrix); // Error 1282 pops up here
+    glGenBuffers(1, &_instanceMatrix);
     glBindBuffer(GL_ARRAY_BUFFER, _instanceMatrix);
-    glBufferData(GL_ARRAY_BUFFER, CHUNK_WIDTH * CHUNK_WIDTH * sizeof(glm::mat4), &modelMatrices[0], GL_STATIC_DRAW);
-
+    // transfer the entire array
+    glBufferData(GL_ARRAY_BUFFER, CHUNK_WIDTH * CHUNK_WIDTH * CHUNK_HEIGHT * sizeof(glm::mat4), &blocks[0], GL_STATIC_DRAW);
 
     glBindVertexArray(_block->getBlockVAO());
-    std::cout << "37 : " << glGetError() << std::endl;
     // vertex attributes
     std::size_t vec4Size = sizeof(glm::vec4);
     glEnableVertexAttribArray(3);
@@ -57,20 +92,18 @@ void Chunk::generateChunk(glm::vec3 center) {
     glVertexAttribPointer(5, 4, GL_FLOAT, GL_FALSE, 4 * vec4Size, (void*)(2 * vec4Size));
     glEnableVertexAttribArray(6);
     glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, 4 * vec4Size, (void*)(3 * vec4Size));
-    std::cout << "48 : " << glGetError() << std::endl;
     glVertexAttribDivisor(3, 1);
     glVertexAttribDivisor(4, 1);
     glVertexAttribDivisor(5, 1);
     glVertexAttribDivisor(6, 1);
-    std::cout << "53 : " << glGetError() << std::endl;
+    // reset
     glBindVertexArray(0);
-
-
 }
 
-void Chunk::drawChunk(glm::mat4 modelMtx, glm::mat4 viewMtx, glm::mat4 projMtx) {
+
+void Chunk::drawChunk(glm::mat4 viewMtx, glm::mat4 projMtx) {
     int amount = CHUNK_WIDTH;
-    _block->drawBlock(glm::mat4(1.0f), viewMtx, projMtx);
+    _block->drawBlock(CHUNK_WIDTH * CHUNK_WIDTH * CHUNK_HEIGHT, viewMtx, projMtx);
     glBindVertexArray(0);
     std::cout << "63 : " << glGetError() << std::endl;
 }

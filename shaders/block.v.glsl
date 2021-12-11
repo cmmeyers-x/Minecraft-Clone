@@ -10,7 +10,7 @@ uniform mat4 view;
 layout(location = 0) in vec3 vPos;
 layout(location = 1) in vec3 vertexNormal;
 layout(location = 2) in vec2 textCordinateIn;
-layout(location = 3) in mat4 instanceMatrix; // mat4 will take up location 4,5,6,7
+layout(location = 3) in mat4 instanceMatrix; // mat4 will take up location 3,4,5,6
 
 
 

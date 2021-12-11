@@ -15,7 +15,7 @@
 class Block {
 public:
     Block();
-    void drawBlock(glm::mat4 modelMtx, glm::mat4 viewMtx, glm::mat4 projMtx);
+    void drawBlock(GLint numBlocks, glm::mat4 viewMtx, glm::mat4 projMtx);
 
 
     // Creates static VAOs and VBOs send vertex data to gpu for future rendering
@@ -54,7 +54,7 @@ private:
     }_shaderAttributeLocations;
 
 
-    const GLfloat _sideLength = 1.0;
+    GLfloat _sideLength = 1.0;
 };
 
 

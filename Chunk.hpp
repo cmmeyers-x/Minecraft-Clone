@@ -18,33 +18,35 @@ class Chunk {
 
 public:
     Chunk();
-    Chunk(Block *_block, TextureManager *_textureManager);
+    Chunk(Block *_block);
     ~Chunk();
     void generateChunk(glm::vec3 center);
-    void drawChunk(glm::mat4 modelMtx, glm::mat4 viewMtx, glm::mat4 projMtx);
+    void drawChunk(glm::mat4 viewMtx, glm::mat4 projMtx);
+    void deleteBlock(int x, int y, int z);
+    void addBlock(int x, int y, int z);
     void setGenerationMode();
 
 
 private:
     struct block_attributes {
-        glm::vec3 position;
-        // texture type?
+        int x,y,z;
     };
+
+
 
     glm::mat4* modelMatrices;
     GLuint _instanceMatrix;
 
     Block *_block = nullptr;
-    TextureManager *_textureManager = nullptr;
 
     glm::vec3 _chunkCenter;
-    std::vector<glm::mat4> _blocks;
+    std::vector<block_attributes> _blockInformation;
 
-    static const int CHUNK_WIDTH = 1024;
-    static const int CHUNK_HEIGHT = 32;
+    void _transferChunkToGPU(std::vector<glm::mat4> blocks);
+    void _regenerateChunk();
+    static const int CHUNK_WIDTH = 16;
+    static const int CHUNK_HEIGHT = 8;
     static const int BLOCK_SPACING = 1;
-
-
 };
 
 
